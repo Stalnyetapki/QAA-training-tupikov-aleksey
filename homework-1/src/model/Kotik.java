@@ -5,17 +5,11 @@ public class Kotik {
     private String name;
     private int weight;
     private int satiety;
-    private static int catsNumber;
-    private String nameFood;
     private String meow;
-    private static int i = 1;
+
+    private static int catsNumber;
 
     public Kotik() {
-        setName("cat" + i);
-        i++;
-        setWeight((int) (Math.random() * 10 + 1));
-        setSatiety((int) (Math.random() * 23 + 1));
-        setMeow("meow");
         catsNumber++;
     }
 
@@ -31,98 +25,69 @@ public class Kotik {
         return catsNumber;
     }
 
-    public static void setCatsNumber(int catsNumber) {
-        Kotik.catsNumber = catsNumber;
-    }
-
     public void play() {
-        if (satiety > 0) {
-            System.out.println("The cat played");
-            satiety--;
-        } else {
-            System.out.println("The cat " + name + " hasn't enough energy");
-        }
+        System.out.println("The cat played");
     }
 
     public void sleep() {
-        if (satiety > 0) {
-            System.out.println("The cat slept");
-            satiety--;
-        } else {
-            System.out.println("The cat " + name + " hasn't enough energy");
-        }
+        System.out.println("The cat slept");
     }
 
     public void chaseMouse() {
-        if (satiety > 0) {
-            System.out.println("The cat was chasing mice");
-            satiety--;
-        } else {
-            System.out.println("The cat " + name + " hasn't enough energy");
-        }
+        System.out.println("The cat was chasing mice");
     }
 
     public void doTygydyk() {
-        if (satiety > 0) {
-            System.out.println("The cat did tygydyk");
-            satiety--;
-        } else {
-            System.out.println("The cat " + name + " hasn't enough energy");
-        }
+        System.out.println("The cat did tygydyk");
     }
 
     public void sharpenClaws() {
-        if (satiety > 0) {
-            System.out.println("The cat sharp claws");
-            satiety--;
-        } else {
-            System.out.println("The cat " + name + " hasn't enough energy");
-        }
-    }
-
-    public void eat(int satietyPoint) {
-        this.satiety += satietyPoint;
-    }
-
-    public void eat(int satietyPoint, String nameFood) {
-        this.satiety += satietyPoint;
-        this.nameFood = nameFood;
-
+        System.out.println("The cat sharpened his claws");
     }
 
     public void eat() {
         eat(1, "fish");
     }
 
+    public void eat(int satietyPoint) {
+        eat(satietyPoint, "meat");
+    }
+
+    public void eat(int satietyPoint, String foodName) {
+        this.satiety += satietyPoint;
+        System.out.println("The cat " + name + " ate the " + foodName);
+    }
+
     public void liveAnotherDay() {
         for (var i = 0; i < 24; i++) {
-            int random = (int) (Math.random() * 4);
-            switch (random) {
-                case 0:
-                    play();
-                    break;
-                case 1:
-                    sleep();
-                    break;
-                case 2:
-                    chaseMouse();
-                    break;
-                case 3:
-                    doTygydyk();
-                    break;
-                case 4:
-                    sharpenClaws();
-                    break;
+            if (satiety > 0) {
+                int random = (int) (Math.random() * 4);
+                switch (random) {
+                    case 0:
+                        play();
+                        satiety--;
+                        break;
+                    case 1:
+                        sleep();
+                        satiety--;
+                        break;
+                    case 2:
+                        chaseMouse();
+                        satiety--;
+                        break;
+                    case 3:
+                        doTygydyk();
+                        satiety--;
+                        break;
+                    case 4:
+                        sharpenClaws();
+                        satiety--;
+                        break;
+                }
+            } else {
+                System.out.println("The cat " + name + " doesn't have enough energy");
             }
         }
-    }
-
-    public String getNameFood() {
-        return nameFood;
-    }
-
-    public void setNameFood(String nameFood) {
-        this.nameFood = nameFood;
     }
 
     public int getSatiety() {
