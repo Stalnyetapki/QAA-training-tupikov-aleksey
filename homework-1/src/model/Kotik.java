@@ -55,7 +55,7 @@ public class Kotik {
 
     public void eat(int satietyPoint, String foodName) {
         this.satiety += satietyPoint;
-        System.out.println("The cat " + name + " ate the " + foodName);
+        System.out.println("The cat " + name + " ate the " + foodName + " and restored " + satietyPoint + " point/points of satiety");
     }
 
     public void liveAnotherDay() {
@@ -85,7 +85,8 @@ public class Kotik {
                         break;
                 }
             } else {
-                System.out.println("The cat " + name + " doesn't have enough energy");
+                System.out.print("The cat " + name + " doesn't have enough energy. ");
+                eat();
             }
         }
     }

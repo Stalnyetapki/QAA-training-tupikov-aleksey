@@ -10,7 +10,7 @@ public class Application {
 
         catSecond.setName("Synok");
         catSecond.setWeight(10);
-        catSecond.setSatiety(23);
+        catSecond.setSatiety(20);
         catSecond.setMeow("meow");
 
         catSecond.liveAnotherDay();
