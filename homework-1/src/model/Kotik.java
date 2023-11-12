@@ -26,23 +26,23 @@ public class Kotik {
     }
 
     public void play() {
-        System.out.println("The cat played");
+        System.out.println("The cat " + name + " played");
     }
 
     public void sleep() {
-        System.out.println("The cat slept");
+        System.out.println("The cat " + name + " slept");
     }
 
     public void chaseMouse() {
-        System.out.println("The cat was chasing mice");
+        System.out.println("The cat " + name + " was chasing mice");
     }
 
     public void doTygydyk() {
-        System.out.println("The cat did tygydyk");
+        System.out.println("The cat " + name + " did tygydyk");
     }
 
     public void sharpenClaws() {
-        System.out.println("The cat sharpened his claws");
+        System.out.println("The cat " + name + " sharpened his claws");
     }
 
     public void eat() {

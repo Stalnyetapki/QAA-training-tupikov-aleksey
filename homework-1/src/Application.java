@@ -17,5 +17,6 @@ public class Application {
         System.out.println(catSecond.getName());
         System.out.println(catFirst.getMeow().equals(catSecond.getMeow()));
         System.out.println(getCatsNumber());
+
     }
 }
