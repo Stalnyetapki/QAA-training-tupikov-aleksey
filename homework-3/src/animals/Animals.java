@@ -30,4 +30,5 @@ public abstract class Animals {
     public AviarySize getAviarySize() {
         return aviarySize;
     }
+
 }
