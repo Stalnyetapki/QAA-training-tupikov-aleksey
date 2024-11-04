@@ -7,13 +7,12 @@ import java.util.HashMap;
 public class Aviary<T extends Animals> {
 
     AviarySize aviarySize;
+    private HashMap<String, T> aviary = new HashMap();
 
     public Aviary(AviarySize aviarySize) {
         this.aviarySize = aviarySize;
 
     }
-
-    private HashMap<String, T> aviary = new HashMap();
 
     public void addAnimal(T animal) {
         if (animal.getAviarySize().getValue() > aviarySize.getValue()) {
@@ -30,5 +29,13 @@ public class Aviary<T extends Animals> {
 
     public T getAnimalLink(String animalName) {
         return aviary.get(animalName);
+    }
+
+    @Override
+    public String toString() {
+        return "Aviary{" +
+                ", aviarySize=" + aviarySize +
+                ", aviary=" + aviary +
+                '}';
     }
 }
