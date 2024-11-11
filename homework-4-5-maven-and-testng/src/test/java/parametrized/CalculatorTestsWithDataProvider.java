@@ -2,6 +2,7 @@ package parametrized;
 
 import exceptions.DivisionByZeroException;
 import exceptions.IncorrectSignValue;
+import io.qameta.allure.*;
 import models.Calculator;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -12,6 +13,9 @@ import static org.testng.Assert.assertEquals;
 /**
  * Набор тестов с DataProvider для класса Calculator
  */
+@Epic("Проверка калькулятора")
+@Feature("Проверка выполнения простых арифметических операций с помощью параметризованных тестов")
+@Owner("Тупиков Алексей")
 public class CalculatorTestsWithDataProvider {
 
     /**
@@ -23,7 +27,7 @@ public class CalculatorTestsWithDataProvider {
      * Создание объекта класса Calculator перед каждым тестом
      */
     @BeforeTest
-    public void setUp(){
+    public void setUp() {
         calculator = new Calculator();
     }
 
@@ -34,7 +38,7 @@ public class CalculatorTestsWithDataProvider {
      */
     @DataProvider
     public Object[][] getPositiveAdditionOperationDataProvider() {
-        return new Integer [][] {
+        return new Integer[][]{
                 {1, 2, 3},
                 {-1, -2, -3},
                 {1, -2, -1},
@@ -49,7 +53,7 @@ public class CalculatorTestsWithDataProvider {
      */
     @DataProvider
     public Object[][] getPositiveSubtractionOperationDataProvider() {
-        return new Integer [][] {
+        return new Integer[][]{
                 {5, 6, -1},
                 {-5, -6, 1},
                 {5, -6, 11},
@@ -64,7 +68,7 @@ public class CalculatorTestsWithDataProvider {
      */
     @DataProvider
     public Object[][] getPositiveMultiplicationOperationDataProvider() {
-        return new Integer [][] {
+        return new Integer[][]{
                 {2, 3, 6},
                 {-2, -3, 6},
                 {2, -3, -6}
@@ -78,7 +82,7 @@ public class CalculatorTestsWithDataProvider {
      */
     @DataProvider
     public Object[][] getPositiveDivisionOperationDataProvider() {
-        return new Integer [][] {
+        return new Integer[][]{
                 {6, 3, 2},
                 {-6, -3, 2},
                 {-6, 3, -2}
@@ -92,7 +96,7 @@ public class CalculatorTestsWithDataProvider {
      */
     @DataProvider
     public Object[][] getDivisionByZeroDataProvider() {
-        return new Integer [][] {
+        return new Integer[][]{
                 {1, 0},
                 {0, 0}
         };
@@ -115,11 +119,15 @@ public class CalculatorTestsWithDataProvider {
 
     /**
      * Позитивный параметризованный тест на проверку суммы чисел
-     * @param firstNumber первое слагаемое из DataProvider 'getPositiveAdditionOperationDataProvider'
+     *
+     * @param firstNumber  первое слагаемое из DataProvider 'getPositiveAdditionOperationDataProvider'
      * @param secondNumber второе из DataProvider 'getPositiveAdditionOperationDataProvider'
-     * @param result ожидаемый результат вычисления из DataProvider 'getPositiveAdditionOperationDataProvider'
+     * @param result       ожидаемый результат вычисления из DataProvider 'getPositiveAdditionOperationDataProvider'
      */
-    @Test(dataProvider = "getPositiveAdditionOperationDataProvider")
+    @Story("Позитивные тесты на сложение двух чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Проверка сложения числа {firstNumber} и {secondNumber}",
+            dataProvider = "getPositiveAdditionOperationDataProvider")
     public void testPutPositiveDataForAddition(int firstNumber, int secondNumber, int result) {
         calculator.setFirstNumber(firstNumber);
         calculator.setMathSign("+");
@@ -130,11 +138,15 @@ public class CalculatorTestsWithDataProvider {
 
     /**
      * Позитивный параметризованный тест на проверку разности чисел
-     * @param firstNumber первое слагаемое из DataProvider 'getPositiveSubtractionOperationDataProvider'
+     *
+     * @param firstNumber  первое слагаемое из DataProvider 'getPositiveSubtractionOperationDataProvider'
      * @param secondNumber второе из DataProvider 'getPositiveSubtractionOperationDataProvider'
-     * @param result ожидаемый результат вычисления из DataProvider 'getPositiveSubtractionOperationDataProvider'
+     * @param result       ожидаемый результат вычисления из DataProvider 'getPositiveSubtractionOperationDataProvider'
      */
-    @Test(dataProvider = "getPositiveSubtractionOperationDataProvider")
+    @Story("Позитивные тесты на разность двух чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Проверка разности чисел {firstNumber} и {secondNumber}",
+            dataProvider = "getPositiveSubtractionOperationDataProvider")
     public void testPutPositiveDataForSubtraction(int firstNumber, int secondNumber, int result) {
         calculator.setFirstNumber(firstNumber);
         calculator.setMathSign("-");
@@ -145,11 +157,15 @@ public class CalculatorTestsWithDataProvider {
 
     /**
      * Позитивный параметризованный тест на проверку умножения чисел
-     * @param firstNumber первое слагаемое из DataProvider 'getPositiveMultiplicationOperationDataProvider'
+     *
+     * @param firstNumber  первое слагаемое из DataProvider 'getPositiveMultiplicationOperationDataProvider'
      * @param secondNumber второе из DataProvider 'getPositiveMultiplicationOperationDataProvider'
-     * @param result ожидаемый результат вычисления из DataProvider 'getPositiveMultiplicationOperationDataProvider'
+     * @param result       ожидаемый результат вычисления из DataProvider 'getPositiveMultiplicationOperationDataProvider'
      */
-    @Test(dataProvider = "getPositiveMultiplicationOperationDataProvider")
+    @Story("Позитивные тесты на произведение двух чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Проверка произведения чисел {firstNumber} и {secondNumber}",
+            dataProvider = "getPositiveMultiplicationOperationDataProvider")
     public void testPutPositiveDataForMultiplication(int firstNumber, int secondNumber, int result) {
         calculator.setFirstNumber(firstNumber);
         calculator.setMathSign("*");
@@ -160,11 +176,15 @@ public class CalculatorTestsWithDataProvider {
 
     /**
      * Позитивный параметризованный тест на проверку деления чисел
-     * @param firstNumber первое слагаемое из DataProvider 'getPositiveDivisionOperationDataProvider'
+     *
+     * @param firstNumber  первое слагаемое из DataProvider 'getPositiveDivisionOperationDataProvider'
      * @param secondNumber второе из DataProvider 'getPositiveDivisionOperationDataProvider'
-     * @param result ожидаемый результат вычисления из DataProvider 'getPositiveDivisionOperationDataProvider'
+     * @param result       ожидаемый результат вычисления из DataProvider 'getPositiveDivisionOperationDataProvider'
      */
-    @Test(dataProvider = "getPositiveDivisionOperationDataProvider")
+    @Story("Позитивные тесты на деление двух чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Проверка деления чисел {firstNumber} и {secondNumber}",
+            dataProvider = "getPositiveDivisionOperationDataProvider")
     public void testPutPositiveDataForDivision(int firstNumber, int secondNumber, int result) {
         calculator.setFirstNumber(firstNumber);
         calculator.setMathSign("/");
@@ -175,10 +195,15 @@ public class CalculatorTestsWithDataProvider {
 
     /**
      * Негативный тест деления на ноль
-     * @param firstNumber первое слагаемое из DataProvider 'getDivisionByZeroDataProvider'
+     *
+     * @param firstNumber  первое слагаемое из DataProvider 'getDivisionByZeroDataProvider'
      * @param secondNumber второе из DataProvider 'getDivisionByZeroDataProvider'
      */
-    @Test(dataProvider = "getDivisionByZeroDataProvider",expectedExceptions = DivisionByZeroException.class)
+    @Story("Негативные тесты на деление двух чисел")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(description = "Проверка деления числа {firstNumber} на ноль",
+            dataProvider = "getDivisionByZeroDataProvider",
+            expectedExceptions = DivisionByZeroException.class)
     public void testDivisionByZero(int firstNumber, int secondNumber) {
         calculator.setFirstNumber(firstNumber);
         calculator.setMathSign("/");
@@ -188,11 +213,16 @@ public class CalculatorTestsWithDataProvider {
 
     /**
      * Негативный тест на проверку ввода некорректного арифметического символа
-     * @param firstNumber первое слагаемое из DataProvider 'getNegativeCalculationWithIncorrectSignDataProvider'
-     * @param sign арифметический знак  из DataProvider 'getNegativeCalculationWithIncorrectSignDataProvider'
+     *
+     * @param firstNumber  первое слагаемое из DataProvider 'getNegativeCalculationWithIncorrectSignDataProvider'
+     * @param sign         арифметический знак  из DataProvider 'getNegativeCalculationWithIncorrectSignDataProvider'
      * @param secondNumber второе из DataProvider 'getNegativeCalculationWithIncorrectSignDataProvider'
      */
-    @Test(dataProvider = "getNegativeCalculationWithIncorrectSignDataProvider",expectedExceptions = IncorrectSignValue.class)
+    @Story("Негативные тесты на использование не арифметических символов в выражении")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(description = "Негативная проверка на использование символа {sign} в выражении",
+            dataProvider = "getNegativeCalculationWithIncorrectSignDataProvider",
+            expectedExceptions = IncorrectSignValue.class)
     public void testCalculationWithIncorrectSign(int firstNumber, String sign, int secondNumber) {
         calculator.setFirstNumber(firstNumber);
         calculator.setMathSign(sign);
