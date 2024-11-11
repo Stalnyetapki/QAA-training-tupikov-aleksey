@@ -1,6 +1,6 @@
-import model.Kotik;
+import models.Kotik;
 
-import static model.Kotik.getCatsNumber;
+import static models.Kotik.getCatsNumber;
 
 public class Application {
 
