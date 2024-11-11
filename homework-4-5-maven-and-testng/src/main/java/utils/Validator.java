@@ -15,7 +15,7 @@ public class Validator {
      * @throws BadIntegerValue если введенное значение не является целым числом
      */
     public static int validateInputNumber(Integer input) throws BadIntegerValue {
-        if (input != null && input.toString().matches("\\d+")) {
+        if (input != null && input.toString().matches("-?\\d+")) {
             return input;
         } else {
             throw new BadIntegerValue("Введенное значение " + input + " не является целым числом");

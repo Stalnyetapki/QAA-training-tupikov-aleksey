@@ -3,6 +3,11 @@ package models;
 import exceptions.DivisionByZeroException;
 import exceptions.IncorrectSignValue;
 
+import java.util.Scanner;
+
+import static utils.Validator.validateInputNumber;
+import static utils.Validator.validateInputSign;
+
 /**
  * Класс хранит в себе значения введенных чисел и производит арифметические вычисления.
  */
@@ -26,30 +31,44 @@ public class Calculator {
     private int result;
 
     /**
+     * Метод для считывания данных для дальнейших расчётов.
+     */
+    public void inputData(){
+        //Считывание первого числа с консоли, его проверка и запись в экземпляр класса Calculator
+        System.out.println("Введите первое целое число");
+        Scanner scanner = new Scanner(System.in);
+        firstNumber = validateInputNumber(scanner.nextInt());
+
+        //Считывание символа арифметической операции с консоли, его проверка и запись в экземпляр класса Calculator
+        System.out.println("Введите знак арифметической операции");
+        mathSign = validateInputSign(scanner.next());
+
+        //Считывание второго числа с консоли, его проверка и запись в экземпляр класса Calculator
+        System.out.println("Введите второе целое число");
+        secondNumber = validateInputNumber(scanner.nextInt());
+    }
+
+    /**
      * Метод в котором проводятся вычисления
      */
-    public void calculate() {
+    public int calculate() {
         if (mathSign != null) {
             switch (mathSign) {
                 case "+":
                     result = firstNumber + secondNumber;
-                    System.out.println(result);
-                    break;
+                    return result;
                 case "-":
                     result = firstNumber - secondNumber;
-                    System.out.println(result);
-                    break;
+                    return result;
                 case "/":
-                    if (this.secondNumber == 0) {
+                    if (secondNumber == 0) {
                         throw new DivisionByZeroException("На ноль делить нельзя");
                     }
                     result = firstNumber / secondNumber;
-                    System.out.println(result);
-                    break;
+                    return result;
                 case "*":
                     result = firstNumber * secondNumber;
-                    System.out.println(result);
-                    break;
+                    return result;
                 default:
                     throw new IncorrectSignValue("Введенное значение " + mathSign + " не являются арифметическим символом из группы: +-*/");
             }
@@ -79,5 +98,13 @@ public class Calculator {
      */
     public void setMathSign(String mathSign) {
         this.mathSign = mathSign;
+    }
+
+    /**
+     * Геттер результата вычисления
+     * @return результат вычисления
+     */
+    public int getResult() {
+        return result;
     }
 }
