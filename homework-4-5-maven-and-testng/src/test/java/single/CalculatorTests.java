@@ -2,6 +2,7 @@ package single;
 
 import exceptions.DivisionByZeroException;
 import exceptions.IncorrectSignValue;
+import io.qameta.allure.*;
 import models.Calculator;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -11,6 +12,9 @@ import static org.testng.Assert.assertEquals;
 /**
  * Тесты для проверки класса Calculator
  */
+@Epic("Проверка калькулятора")
+@Feature("Проверка выполнения простых арифметических операций с помощью одиночных тестов")
+@Owner("Тупиков Алексей")
 public class CalculatorTests {
 
     /**
@@ -29,7 +33,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку суммы двух положительных чисел
      */
-    @Test
+    @Story("Позитивные проверки суммы чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Проверка суммы двух положительных чисел")
     public void testPositiveNumbersSum() {
         int firstNumber = 1;
         int secondNumber = 2;
@@ -44,7 +50,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку суммы двух отрицательных чисел
      */
-    @Test
+    @Story("Позитивные проверки суммы чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Проверка суммы двух отрицательных чисел")
     public void testNegativeNumbersSum() {
         int firstNumber = -1;
         int secondNumber = -2;
@@ -59,7 +67,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку суммы положительного и отрицательного чисел
      */
-    @Test
+    @Story("Позитивные проверки суммы чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Проверка суммы положительного и отрицательного чисел")
     public void testPositiveAndNegativeNumbersSum() {
         int firstNumber = 1;
         int secondNumber = -2;
@@ -74,7 +84,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку суммы положительного числа и нуля
      */
-    @Test
+    @Story("Позитивные проверки суммы чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Позитивный тест на проверку суммы положительного числа и нуля")
     public void testPositiveNumberAndZeroSum() {
         int firstNumber = 1;
         int secondNumber = 0;
@@ -89,7 +101,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку разности положительных чисел
      */
-    @Test
+    @Story("Позитивные проверки разности чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Позитивный тест на проверку разности положительных чисел")
     public void testPositiveNumbersSubtraction() {
         int firstNumber = 5;
         int secondNumber = 6;
@@ -104,7 +118,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку разности отрицательных чисел.
      */
-    @Test
+    @Story("Позитивные проверки разности чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Позитивный тест на проверку разности отрицательных чисел")
     public void testNegativeNumbersSubtraction() {
         int firstNumber = -5;
         int secondNumber = -6;
@@ -119,7 +135,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку разности отрицательного числа из положительного.
      */
-    @Test
+    @Story("Позитивные проверки разности чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Позитивный тест на проверку разности отрицательного числа из положительного")
     public void testPositiveAndNegativeNumbersSubtraction() {
         int firstNumber = 5;
         int secondNumber = -6;
@@ -134,7 +152,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку разности отрицательного числа из нуля.
      */
-    @Test
+    @Story("Позитивные проверки разности чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Позитивный тест на проверку разности отрицательного числа из нуля")
     public void testPositiveNumberFromZeroSubtraction() {
         int firstNumber = 0;
         int secondNumber = 6;
@@ -149,7 +169,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку умножения положительных чисел
      */
-    @Test
+    @Story("Позитивные проверки умножения чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Позитивный тест на проверку умножения положительных чисел")
     public void testPositiveNumbersMultiplication() {
         int firstNumber = 2;
         int secondNumber = 3;
@@ -164,7 +186,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку умножения отрицательных чисел.
      */
-    @Test
+    @Story("Позитивные проверки умножения чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Позитивный тест на проверку умножения отрицательных чисел")
     public void testNegativeNumbersMultiplication() {
         int firstNumber = -2;
         int secondNumber = -3;
@@ -179,7 +203,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку умножения положительного и отрицательного чисел.
      */
-    @Test
+    @Story("Позитивные проверки умножения чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Позитивный тест на проверку умножения положительного и отрицательного чисел")
     public void testPositiveAndNegativeNumbersMultiplication() {
         int firstNumber = 2;
         int secondNumber = -3;
@@ -194,7 +220,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку деления положительных чисел.
      */
-    @Test
+    @Story("Позитивные проверки деления чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Позитивный тест на проверку деления положительных чисел")
     public void testPositiveNumbersDivision() {
         int firstNumber = 6;
         int secondNumber = 3;
@@ -209,7 +237,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку деления отрицательных чисел.
      */
-    @Test
+    @Story("Позитивные проверки деления чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Позитивный тест на проверку деления отрицательных чисел")
     public void testNegativeNumbersDivision() {
         int firstNumber = -6;
         int secondNumber = -3;
@@ -224,7 +254,9 @@ public class CalculatorTests {
     /**
      * Позитивный тест на проверку деления отрицательного числа на положительное.
      */
-    @Test
+    @Story("Позитивные проверки деления чисел")
+    @Severity(SeverityLevel.BLOCKER)
+    @Test(description = "Позитивный тест на проверку деления отрицательного числа на положительное")
     public void testPositiveAndNegativeNumbersDivision() {
         int firstNumber = -6;
         int secondNumber = 3;
@@ -239,7 +271,10 @@ public class CalculatorTests {
     /**
      * Негативный тест на проверку деления на ноль.
      */
-    @Test(expectedExceptions = DivisionByZeroException.class)
+    @Story("Негативные проверки деления чисел")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(description = "Негативный тест на проверку деления на ноль",
+            expectedExceptions = DivisionByZeroException.class)
     public void testDivisionByZero() {
         int firstNumber = 2;
         int secondNumber = 0;
@@ -252,7 +287,10 @@ public class CalculatorTests {
     /**
      * Негативный тест при установке знака, не являющимся арифметическим
      */
-    @Test(expectedExceptions = IncorrectSignValue.class)
+    @Story("Негативные проверки на вводимый арифметический символ")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(description = "Негативный тест при установке знака, не являющимся арифметическим",
+            expectedExceptions = IncorrectSignValue.class)
     public void testCalculationWithIncorrectSign() {
         int firstNumber = 2;
         int secondNumber = 0;
@@ -265,7 +303,10 @@ public class CalculatorTests {
     /**
      * Негативный тест при попытке вычисления, когда переменной арифметического знака не присвоено значение.
      */
-    @Test(expectedExceptions = IncorrectSignValue.class)
+    @Story("Негативные проверки на вводимый арифметический символ")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(description = "Негативный тест, когда переменной арифметического знака не присвоено значение",
+            expectedExceptions = IncorrectSignValue.class)
     public void testCalculationWithNullSign() {
         int firstNumber = 2;
         int secondNumber = 0;

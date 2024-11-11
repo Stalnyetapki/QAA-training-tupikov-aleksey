@@ -1,6 +1,7 @@
 package parametrized;
 
 import exceptions.IncorrectSignValue;
+import io.qameta.allure.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -11,6 +12,9 @@ import static utils.Validator.validateInputSign;
 /**
  * Набор тестов с DataProvider для класса Validator
  */
+@Epic("Проверка калькулятора")
+@Feature("Проверка валидации чисел и знаков, используемых в калькуляторе c помощью параметризованных тестов")
+@Owner("Тупиков Алексей")
 public class ValidatorTestsWithDataProvider {
 
     /**
@@ -48,7 +52,10 @@ public class ValidatorTestsWithDataProvider {
      *
      * @param num данные из DataProvider
      */
-    @Test(dataProvider = "getValidateInputNumberPositiveTestData")
+    @Story("Параметризованные позитивные тесты на валидацию чисел в выражении")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(description = "Позитивные проверка валидатора на ввод integer чисел",
+            dataProvider = "getValidateInputNumberPositiveTestData")
     public void testValidateInputNumberPositive(int num) {
         assertEquals(validateInputNumber(num), num);
     }
@@ -58,7 +65,10 @@ public class ValidatorTestsWithDataProvider {
      *
      * @param sign знак символа из DataProvider
      */
-    @Test(dataProvider = "getValidateInputSignPositiveTestData")
+    @Story("Параметризованные позитивные тесты на прохождение валидации допустимых арифметических знаков")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(description = "Позитивные проверка валидатора на ввод арифметических знаков",
+            dataProvider = "getValidateInputSignPositiveTestData")
     public void testValidateInputSignPositive(String sign) {
         assertEquals(validateInputSign(sign), sign);
     }
@@ -68,7 +78,10 @@ public class ValidatorTestsWithDataProvider {
      *
      * @param sign знак символа из DataProvider
      */
-    @Test(dataProvider = "getValidateInputSignNegativeTestData", expectedExceptions = IncorrectSignValue.class)
+    @Story("Параметризованные негативные тесты на не прохождение валидации знаков, не являющимися арифметическими")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(description = "Негативная проверка на ввод невалидных символов",
+            dataProvider = "getValidateInputSignNegativeTestData", expectedExceptions = IncorrectSignValue.class)
     public void testValidateInputSignNumber(String sign) {
         validateInputSign(sign);
     }
