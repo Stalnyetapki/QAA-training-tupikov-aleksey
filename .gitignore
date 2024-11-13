@@ -1,5 +1,10 @@
-/.idea/
 /out/
+/.idea/
 **/target/
-*.iml
 **/.allure/
+**/resources/
+*/.gradle/
+*/build/
+*.iml
+**/gradle/wrapper/
+/gradle-project/gradle/
